@@ -12,7 +12,6 @@ namespace DuckExterminator
 {
     internal class Program
     {
-        [Obfuscation(Feature = "+virtualization",Exclude = false)]
         static void Main(string[] args)
         {
             Console.Title = "Kov.NET Deobfuscator || by Yeetret";
@@ -28,18 +27,16 @@ namespace DuckExterminator
                 Console.WriteLine("Drag and drop your file : ");
                 Filename = Console.ReadLine().Replace("\"", "");
             }
-
+           //lazy
             var _module = ModuleDefMD.Load(args[0]);
             var _assembly = System.Reflection.Assembly.LoadFile(Filename);
-
             DeobfuscatorContext.Asm = _assembly;
             DeobfuscatorContext.Module = _module;
-
             Protections.ProxyInt.Fix();
-            Protections.LocalToFields.Fix();
+            Protections.LocalToFields.Fix(); //from miso
             Protections.SizeOfs.Fix();
-            Protections.MathFixer.Fix(true);
-            Protections.IfFlow.Fix();
+            Protections.MathFixer.Fix(true); //from miso
+            Protections.IfFlow.Fix(); //from Deob-DotNetPatcher
             Protections.Junk.Fix();
             Protections.StringEncryption.Fix();
 

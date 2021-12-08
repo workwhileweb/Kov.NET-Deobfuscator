@@ -23,7 +23,7 @@ namespace DuckExterminator.Protections
             {
                 foreach (MethodDef Method in Type.Methods)
                 {
-                    if (!Method.HasBody && !Method.Body.HasInstructions)
+                    if (!Method.HasBody || !Method.Body.HasInstructions)
                         continue;
                     var instr = Method.Body.Instructions;
                     for (int i = 0; i < instr.Count; i++)

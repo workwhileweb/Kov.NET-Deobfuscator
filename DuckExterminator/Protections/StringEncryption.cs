@@ -10,6 +10,7 @@ namespace DuckExterminator.Protections
 {
     internal class StringEncryption
     {
+        //shit string decryption for a shit string encryption
         private static ModuleDefMD Module = DeobfuscatorContext.Module;
         public static void Fix()
         {
@@ -28,8 +29,6 @@ namespace DuckExterminator.Protections
                     {
                         try
                         {
-
-
                             if (instr[i].OpCode == OpCodes.Call && instr[i - 1].IsLdcI4() && instr[i - 2].OpCode == OpCodes.Ldstr)
                             {
                                 instr[i].OpCode = OpCodes.Ldstr;
@@ -37,8 +36,6 @@ namespace DuckExterminator.Protections
 
                                 instr[i - 1].OpCode = OpCodes.Nop;
                                 instr[i - 2].OpCode = OpCodes.Nop;
-
-
                                 Fixed++;
                             }
                         }

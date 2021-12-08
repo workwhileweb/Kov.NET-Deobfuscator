@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 namespace DuckExterminator.Protections
 {
     internal class LocalToFields
-    {
+    { /// <summary>
+      /// Get from since icba to make one myself : https://github.com/miso-xyz/DuckiKov/blob/main/Program.cs
+      /// </summary>
         private static ModuleDefMD Module = DeobfuscatorContext.Module;
         public static void Fix()
         {

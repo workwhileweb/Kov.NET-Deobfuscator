@@ -11,7 +11,10 @@ namespace DuckExterminator.Protections
     internal class MathFixer
     {
         private static ModuleDefMD asm = DeobfuscatorContext.Module;
-
+        /// <summary>
+        /// Get from since icba to make one myself : https://github.com/miso-xyz/DuckiKov/blob/main/Program.cs#L241
+        /// </summary>
+        /// <param name="fixCalls"></param>
         public static void Fix(bool fixCalls = true)
         {
             int Fixed = 0;
